@@ -15,4 +15,7 @@ public class Logger {
             e.printStackTrace();
         }
     }
+    public static void logOperation(String Operation,String ticketID){
+        log("Ticket: "+ticketID);
+    }
 }

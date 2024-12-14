@@ -19,7 +19,7 @@ public class Configuration {
     public int getMaxTicketCapacity() { return maxTicketCapacity; }
     public static Configuration loadFromFile(String filePath) throws IOException {
         Gson gson = new Gson();
-        try (Reader reader = new FileReader(filePath)) {
+        try (Reader reader = new FileReader("config/config.json")) {
             return gson.fromJson(reader, Configuration.class);
         }
     }
