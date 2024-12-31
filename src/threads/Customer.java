@@ -11,7 +11,7 @@ public class Customer extends AbstractTicketHandler implements Runnable {
         while (true) {
             String ticket = ticketPool.removeTicket();
             if (ticket != null) {
-                Logger.log("Customer retrieved: " + ticket);
+                Logger.log("Customer retrieved: " + ticket+ System.nanoTime());
 
             } else {
                 Logger.log("Customer found no tickets available.");
