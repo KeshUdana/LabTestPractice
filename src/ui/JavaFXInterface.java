@@ -84,9 +84,9 @@ public class JavaFXInterface extends Application {
 // Initialize configuration and ticket pool
                 Configuration config = new Configuration(totalTickets, ticketReleaseRate,
                         customerRetrievalRate, maxTicketCapacity);
-        ticketPool = new TicketPool();
+        ticketPool = new TicketPool(config);
 // Start threads
-        vendorThread = new Thread(new Vendor(ticketPool, config.getTicketReleaseRate()));
+        vendorThread = new Thread(new Vendor(ticketPool, config.getTicketReleaseRate(),config.getMaxTicketCapacity()));
         customerThread = new Thread(new Customer(ticketPool));
         vendorThread.start();
         customerThread.start();
