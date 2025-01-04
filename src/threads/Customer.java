@@ -3,10 +3,12 @@ import core.AbstractTicketHandler;
 import core.TicketPool;
 import logging.Logger;
 
+import java.time.LocalDateTime;
+
 public class Customer extends AbstractTicketHandler implements Runnable {
+    public LocalDateTime Time;
 
     public Customer(TicketPool ticketPool) {
-
         super(ticketPool);
     }
     @Override
@@ -14,7 +16,10 @@ public class Customer extends AbstractTicketHandler implements Runnable {
         while (true) {
             String ticket = ticketPool.removeTicket();
             if (ticket != null) {
-                Logger.log("Customer retrieved: " + ticket);
+
+                Logger.log("Customer retrieved: " + ticket+
+                        " -- Time: "+LocalDateTime.now());
+
 
             } else {
                 Logger.log("Customer found no tickets available.");

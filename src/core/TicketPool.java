@@ -2,9 +2,7 @@ package core;
 
 import config.Configuration;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class TicketPool implements TicketOperation {
     private final List<String> tickets = Collections.synchronizedList(new LinkedList<>());
@@ -17,7 +15,7 @@ public class TicketPool implements TicketOperation {
 
     @Override
     public synchronized void addTickets(String ticket) {
-        while (tickets.size() >= config.getMaxTicketCapacity()) { // Wait if the pool is full
+        while (tickets.size() >= config.getMaxTicketCapacity()) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -46,4 +44,5 @@ public class TicketPool implements TicketOperation {
     public synchronized int getTicketCount() {
         return tickets.size();
     }
+
 }
