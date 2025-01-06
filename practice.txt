@@ -1,0 +1,80 @@
+1.Encapsulation: Practice creating a class with private attributes and public getter/setter methods.
+
+class Main {
+    public static void main(String[] args) {
+        Vendor vendor=new Vendor();
+        vendor.setFVendor("up");
+        vendor.setSVendor("doo");
+        String fvendor=vendor.getFastVendor();
+        System.out.println(fvendor);
+        String svendor=vendor.getSlowVendor();
+        System.out.println(svendor);
+        }
+}
+class Vendor{
+    private String FastVendor;
+    private String SlowVendor;
+    
+    public String getFastVendor(){
+        return FastVendor;
+    }
+    public String getSlowVendor(){
+        return SlowVendor;
+    }
+    public void setFVendor(String FastVendor){
+        this.FastVendor=FastVendor;
+    }
+    public void setSVendor(String SlowVendor){
+        this.SlowVendor=SlowVendor;
+    }
+}
+2.Inheritance & Polymorphism: Write a base Vendor class and create two subclasses like FastVendor and SlowVendor.
+class Main {
+    public static void main(String[] args) {
+        // Polymorphism demonstration
+        Vendor vendor1 = new FastVendor(); // Base class reference, subclass object
+        vendor1.setCVendor("Jetix"); // Base class method
+        System.out.println(vendor1.getCommVendor()); // Calls overridden method in FastVendor
+
+        Vendor vendor2 = new SlowVendor(); // Base class reference, subclass object
+        vendor2.setCVendor("Ebay"); // Base class method
+        System.out.println(vendor2.getCommVendor()); // Calls overridden method in SlowVendor
+    }
+}
+
+class Vendor {
+    private String Commercial;
+    private String Local;
+
+    public String getCommVendor() {
+        return "Generic Vendor: " + Commercial; // Default implementation
+    }
+
+    public String getLocalVendor() {
+        return "Generic Vendor: " + Local; // Default implementation
+    }
+
+    public void setCVendor(String Commercial) {
+        this.Commercial = Commercial;
+    }
+
+    public void setLVendor(String Local) {
+        this.Local = Local;
+    }
+}
+
+// Subclass FastVendor
+class FastVendor extends Vendor {
+    @Override
+    public String getCommVendor() {
+        return "FastVendor: " + super.getCommVendor(); // Override method
+    }
+}
+
+// Subclass SlowVendor
+class SlowVendor extends Vendor {
+    @Override
+    public String getCommVendor() {
+        return "SlowVendor: " + super.getCommVendor(); // Override method
+    }
+}
