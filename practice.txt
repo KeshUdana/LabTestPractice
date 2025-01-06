@@ -78,3 +78,75 @@ class SlowVendor extends Vendor {
         return "SlowVendor: " + super.getCommVendor(); // Override method
     }
 }
+
+3.Encapsulation: Practice creating a class with private attributes and public getter/setter methods.
+Inheritance & Polymorphism: Write a base Vendor class and create two subclasses like FastVendor and SlowVendor.
+Interfaces: Create a simple interface RetrievalStrategy and implement it with two classes.
+
+
+class Main {
+    public static void main(String[] args) {
+        // Create a FastVendor
+        FastVendor fastVendor = new FastVendor();
+        fastVendor.setCommercialV("Jetix"); // Set commercial vendor name
+        fastVendor.setLocalV("Keels"); // Set local vendor name
+
+        // Create a SlowVendor
+        SlowVendor slowVendor = new SlowVendor();
+        slowVendor.setCommercialV("Ebay"); // Set commercial vendor name
+        slowVendor.setLocalV("LocalMart"); // Set local vendor name
+
+        // Print details using GetInfo interface
+        System.out.println(fastVendor.getInfo());
+        System.out.println(fastVendor.getCommercialV());
+        System.out.println(fastVendor.getLocalV());
+
+        System.out.println(slowVendor.getInfo());
+        System.out.println(slowVendor.getCommercialV());
+        System.out.println(slowVendor.getLocalV());
+    }
+}
+
+interface GetInfo{
+    return String getInfo();
+}
+class Vendor {
+    private String CommercialV;
+    private String LocalV;
+
+    public String getCommercialV() {
+        return "Commercial: " + CommercialV;
+    }
+
+    public String getLocalV() {
+        return "Local: " + LocalV;
+    }
+
+    public void setCommercialV(String CommercialV) {
+        this.CommercialV = CommercialV;
+    }
+
+    public void setLocalV(String LocalV) {
+        this.LocalV = LocalV;
+    }
+}
+
+class FastVendor extends Vendor implements GetInfo{
+    @Override
+    public String GetInfo(){
+        return "Dis ones a fast Vendor";
+    }
+}
+class SlowVendor extends Vendor implements GetInfo{
+    @Override
+    public String GetInfo(){
+        return "Dis ones a slow Vendor";
+    }
+}
+
+
+
+
+
+
+
