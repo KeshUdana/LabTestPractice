@@ -144,6 +144,53 @@ class SlowVendor extends Vendor implements GetInfo{
     }
 }
 
+4.Write a simple producer-consumer program using synchronized methods or blocks and a shared Queue.
+
+import.java.util.LinkedList;
+
+class Main {
+    public static void main(String[] args) {
+      
+    }
+}
+
+class TicketPool{
+    private final List<String>TicketPool=new List<>();
+    private final int capapcity;
+    
+    public capacity(int capacity){
+        this.capacity=capacity;
+    }
+}
+synchronized void producer(int item)throws InterruptedException{
+    while(TicketPool.size()<=capacity){
+        wait();
+    }
+    TicketPool.add(item);
+    System.out.println("Produced: "+item);
+    notifyAll();
+} 
+synchronized void consumer()throws InterruptedException{
+    while(TicketPool.isEmpty()){
+        wait();
+    }
+    TicketPool.remove(item);
+    System.out.println("Consumed: "+item);
+    notifyAll();
+    return item;
+}
+
+Producer implements Runnable{
+    
+}
+
+
+
+
+
+
+
+
 
 
 
