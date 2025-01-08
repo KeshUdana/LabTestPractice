@@ -1,4 +1,4 @@
-1.Encapsulation: Practice creating a class with private attributes and public getter/setter methods.
+1.Encapsulation: Practice creating a class with private attributes and public getter/setter methods..
 
 class Main {
     public static void main(String[] args) {
